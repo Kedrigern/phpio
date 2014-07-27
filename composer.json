@@ -1,0 +1,25 @@
+{
+	"name": "kedrigern/phpio",
+	"description": "PHP class for batch file processing. You can read, write, delete, move. All in pretty object.",
+	"keywords": ["file", "io"],
+	"homepage": "https://github.com/Kedrigern/phpio",
+	"license": ["BSD-3-Clause", "GPL-3.0"],
+	"authors": [
+		{
+			"name": "Ondřej Profant",
+			"homepage": "https://github.com/Kedrigern"
+		}
+	],
+	"require": {
+		"php": ">=5.3.0"
+	},
+	"require-dev": {
+		"nette/tester": "~1.2.0"
+	},
+	"replace": {
+		"kedrigern/data-table": "self.version"
+	},
+	"autoload": {
+		"files": ["src/load.php"]
+	}
+}
