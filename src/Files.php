@@ -83,9 +83,8 @@ class Files {
 	/**
 	 * @param callable $function apply to the files
 	 * @param null|callable $post function called after process all files
-	 * @param null $log TODO
+	 * @param null|array $log array of callback results (event post callback)
 	 * @return Files $this
-	 * @todo
 	 */
 	public function call($function, $post = null, &$log = null) {
 		$results = array();
@@ -100,8 +99,9 @@ class Files {
 		}
 
 		if(is_callable($post)) {
-			call_user_func($post, $results);
+			$results['post'] = call_user_func($post, $results);
 		}
+		$log = $results;
 
 		chdir($this->originDir);
 		return $this;

@@ -32,6 +32,21 @@ $fill = function($file) {
 $files->dir('*.txt')->writeable()->call($fill)->move('archive', true);
 ```
 
+Sum numbers from files (with num sufix):
+```php
+$parseIntFromFile = function($file) {
+	return intval(file_get_contents($file));
+};
+
+$postSum = function($results) {
+	return array_sum($results);
+};
+
+$files->dir('*.num')->call($parseIntFromFile, $postSum, $log);
+
+// now $log['post'] contains sum
+```
+
 ##Authors and contact
  * [Ondřej Profant](https://github.com/Kedrigern)
  * [issues](https://github.com/Kedrigern/phpIO/issues)
