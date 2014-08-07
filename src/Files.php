@@ -47,7 +47,11 @@ class Files {
 		$this->filter = basename($path);
 
 		if(is_dir($this->dir)) {
-			chdir($this->dir);
+			if(is_readable($this->dir)) {
+				chdir($this->dir);
+			} else {
+				throw new NotEnoughPrivileges('read', fileperms($this->dir), $this->dir);
+			}
 		} else {
 			throw new PathIsNotDir($this->dir);
 		}
