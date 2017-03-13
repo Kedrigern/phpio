@@ -1,9 +1,12 @@
-#phpIO
+# phpIO
 
 Contains class for manipulation with files.
 It is simple wrapper over internal functions, but in pretty object form.
 
-##Examples
+[![Build Status](https://travis-ci.org/Kedrigern/phpio.svg?branch=master)](https://travis-ci.org/Kedrigern/phpio)
+
+## Examples
+
 We suppose:
 ```php
 $files = new \Kedrigern\phpIO\Files();
@@ -47,6 +50,13 @@ $files->dir('*.num')->call($parseIntFromFile, $postSum, $log);
 // now $log['post'] contains sum
 ```
 
-##Authors and contact
+## Install and tests
+
+```
+composer install
+vendor/bin/tester -c test/ test/
+```
+
+## Authors and contact
  * [Ondřej Profant](https://github.com/Kedrigern)
  * [issues](https://github.com/Kedrigern/phpIO/issues)
